@@ -1,0 +1,159 @@
+GlobalDetails:
+  TimeStepDays:	    1
+  StartDate:	      2020-03-01
+  EndDate:          2021-03-01
+  Simulations:      100
+
+ArtificialConstraints:
+  ApplyTimeVaryingInterventions:  
+  - TRUE
+  ArtificiallyConstrainEstimates: 
+  - TRUE
+  ConstrainFactor:
+  - .45
+  
+StatisticalParameters:
+  InfectionCharacteristics:
+   IncubationLatentPeriod: 
+   # Sample comment to show how you can keep notes on your parameters
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               3
+      sd:                 0
+      
+   AverageDurationOfInfectiousness:
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               5
+      sd:                 0
+
+   R0:	
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               2.5
+      sd:                 0
+
+   ProportionAsymptomatic:
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               .75
+      sd:                 0
+
+   R0_RatioInAsymptomatic:
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               .75
+      sd:                 0
+
+  ImportedCasesEarlyOn:		
+   pctAlreadyInfectious:
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               .5
+      sd:                 0
+
+   pctInfectiousIsolated:
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               .65
+      sd:                 0
+
+   RatioImported_CommunityTxm:
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               2
+      sd:                 0
+
+   HowLongToSeedCasesFor:
+     generating_function: "rnorm"  
+     args: 
+      'n':                1
+      mean:               20
+      sd:                 0
+
+  MorbidityAndMortalityInSymptomatic:		
+   pctHospitalised:
+     generating_function: "rnorm"  
+     args: 
+      'n':                 1
+      mean:                .045
+      sd:                  0
+
+   LOSGeneralAdmissions:
+     generating_function:   "rnorm"  
+     args: 
+      'n':                            1
+      mean:                           10
+      sd:                             0
+
+   pctAdmittedToICU:
+     generating_function:   "rnorm"  
+     args: 
+      'n':                            1
+      mean:                           .015
+      sd:                             0
+
+   LOSICUAverage:
+     generating_function:   "rnorm"  
+     args: 
+      'n':                            1
+      mean:                           10
+      sd:                             0
+
+   pctHospitalisedDying:
+     generating_function:   "rnorm"  
+     args: 
+      'n':                            1
+      mean:                           .08
+      sd:                             0
+
+   pctICUDying:
+     generating_function:   "rnorm"  
+     args: 
+      'n':                            1
+      mean:                           .35
+      sd:                             0
+
+   pctDeathsNotHospitalised:
+     generating_function:   "rnorm"  
+     args: 
+      'n':                            1
+      mean:                           .0035
+      sd:                             0
+
+  PopulationDetails:		
+   TotalPopulation: 
+     generating_function:   "rnorm"  
+     args: 
+      'n':                            1
+      mean:                           7000000
+      sd:                             0
+
+   PrivateSectorPopulation:
+     generating_function:   "rnorm"  
+     args: 
+      'n':                            1
+      mean:                           .3
+      sd:                             0
+
+TimeVaryingParameters:
+# Standard deviation of the parameter as a percentage of the point estimate 
+# provided in time_varying_assumptions.xlsx
+  Imports:
+      sd_pct_mean:        0
+  TestingImportedCases:
+      sd_pct_mean:        0
+  TestingCommunityCases:
+      sd_pct_mean:        0
+  InterventionEffectivenessPublic:
+      sd_pct_mean:        0
+  InterventionEffectivenessPrivate:
+      sd_pct_mean:        0
